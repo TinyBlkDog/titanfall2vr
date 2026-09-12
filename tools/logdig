@@ -1,0 +1,56 @@
+#!/bin/sh
+# logdig -- collapse a titanfall2vr run log into a readable digest.
+#
+# WHY THIS EXISTS: the run log is ~9,000 lines / 1.5 MB and roughly half of it
+# is one repetitive per-frame family. Reading it whole costs 25-40% of an
+# agent's context in a single call. That, not documentation, was the biggest
+# context sink in the project. Never cat the log; use this.
+#
+#   logdig                 digest: identity, rare lines in full, repeats as counts
+#   logdig families        every line family with its count, biggest first
+#   logdig f <pat> [n]     last n (default 20) lines matching pat
+#   logdig id              just the run identity (config hash, cmdline, dll)
+#   LOG=/path/to.log logdig ...      override the log location
+#
+# A family is a line with timestamps and numbers replaced by N. "Rare" families
+# (< THRESH occurrences) are where the answers almost always are; the frequent
+# ones are per-frame noise and are shown as one sample plus a count.
+
+LOG=${LOG:-${TEMP:-/tmp}/titanfall2vr.log}
+THRESH=${THRESH:-6}
+[ -f "$LOG" ] || { echo "logdig: no log at $LOG" >&2; exit 1; }
+
+norm() { sed 's/^\[[^]]*\]//; s/0x[0-9A-Fa-f]*/H/g; s/-\{0,1\}[0-9][0-9.]*/N/g'; }
+
+case "${1:-digest}" in
+  id)
+    grep -a -i -m 40 -E 'config|content [0-9A-F]|cmdline|command line|\.dll|PROFILE|render resolution|FNV' "$LOG" | head -20
+    ;;
+  families)
+    norm < "$LOG" | sort | uniq -c | sort -rn | head -${2:-40}
+    ;;
+  f)
+    [ -n "$2" ] || { echo "logdig f <pattern> [n]" >&2; exit 1; }
+    grep -a -E "$2" "$LOG" | tail -${3:-20}
+    ;;
+  digest)
+    echo "=== $LOG : $(wc -l < "$LOG") lines, $(wc -c < "$LOG") bytes ==="
+    echo
+    echo "--- RUN IDENTITY ---"
+    grep -a -i -m 40 -E 'content [0-9A-F]|cmdline|command line|PROFILE|render resolution' "$LOG" | head -12
+    echo
+    echo "--- RARE LINES (families seen < $THRESH times), in order ---"
+    awk -v t="$THRESH" '
+      { line[NR]=$0 }
+      { k=$0; gsub(/^\[[^]]*\]/,"",k); gsub(/0x[0-9A-Fa-f]*/,"H",k); gsub(/-?[0-9][0-9.]*/,"N",k); key[NR]=k; cnt[k]++ }
+      END { for (i=1;i<=NR;i++) if (cnt[key[i]] < t) print line[i] }
+    ' "$LOG" | head -220
+    echo
+    echo "--- REPEATED FAMILIES (count x last sample) ---"
+    awk -v t="$THRESH" '
+      { k=$0; gsub(/^\[[^]]*\]/,"",k); gsub(/0x[0-9A-Fa-f]*/,"H",k); gsub(/-?[0-9][0-9.]*/,"N",k); cnt[k]++; last[k]=$0 }
+      END { for (k in cnt) if (cnt[k] >= t) printf "%6d x %s\n", cnt[k], substr(last[k],1,150) }
+    ' "$LOG" | sort -rn | head -60
+    ;;
+  *) echo "logdig: unknown command $1" >&2; exit 1 ;;
+esac

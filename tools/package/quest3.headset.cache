@@ -1,0 +1,27 @@
+# Written by titanfall2vr. One line per headset this build has seen.
+# The geometry is remembered because the resolution has to be set before
+# OpenXR can report it. `scale` is that headset's OWN resolution setting;
+# a headset seen for the FIRST time starts at the shipped default, which
+# is deliberately below the per-eye height the runtime asks for: the
+# widened buffer at 1.00 is about twice a 4K frame and no GPU check is
+# made. Raise it in the config menu if you have the headroom.
+# Delete this file to forget every headset.
+#
+# THIS COPY IS A SEED, not a recording. It was measured on a Meta Quest 3
+# through Virtual Desktop's VDXR runtime, and it exists so that a Quest 3
+# user's FIRST launch already knows the panel geometry instead of deriving
+# it -- which is the badly magnified first minute in KNOWN-ISSUES 8.
+#
+# It only helps if your fingerprint matches the line below, and the
+# fingerprint includes the per-eye resolution your runtime asks for, which
+# changes with Virtual Desktop's quality setting. If it does not match, the
+# file is ignored and your headset is learned the usual way: no harm, no
+# benefit. Nothing here is personal to the machine it was measured on.
+#
+# The field after `scale` is a field-of-view scale, and it is deliberately
+# 0 here. A derived one is exactly what KNOWN-ISSUES 17 suspects, and a
+# seeded file has no business shipping somebody else's.
+#
+# fields: recW recH tanW tanH scale fovScale fingerprint
+active 0
+headset 3072 3264 1.37638 1.27325 0.7500 0.0000 Meta Quest 3|VirtualDesktopXR|3072x3264|2.215x2.394

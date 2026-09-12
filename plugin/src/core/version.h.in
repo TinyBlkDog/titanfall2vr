@@ -1,0 +1,12 @@
+#pragma once
+
+// GENERATED. Do not edit -- edit TF2VR_VERSION_TAG in plugin/CMakeLists.txt,
+// which is the single place this project's version is declared. The zip name,
+// this banner and the git tag all read that one line so they cannot disagree.
+
+#define TF2VR_VERSION_TAG "@TF2VR_VERSION_TAG@"
+#define TF2VR_VERSION     "@TF2VR_VERSION@"
+#define TF2VR_GIT_SHA     "@TF2VR_GIT_SHA@"
+
+#define TF2VR_PRODUCT_NAME "@TF2VR_PRODUCT_NAME@"
+#define TF2VR_AUTHOR       "@TF2VR_AUTHOR@"
