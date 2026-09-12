@@ -1,0 +1,40 @@
+# Dear ImGui — vendored, pinned
+
+upstream   https://github.com/ocornut/imgui
+tag        v1.92.8
+commit     8936b58fe26e8c3da834b8f60b06511d537b4c63
+dated      2026-05-12
+vendored   2026-08-24
+
+## Why this pin and not upstream HEAD
+
+v1.92.8 is a tagged release, AND it is the exact commit the BioShock Trilogy VR
+mod ships (`third_party/imgui` submodule SHA in that repo, verified against this
+tag). That mod is one of the three read at source for REVIEW-VRMENU-2026-08, and
+PLAN-VRMENU M1 adapts its 179-line overlay — so the code being adapted is known
+to build and run against exactly these sources. Pinning to a version nothing has
+exercised would throw that away for no gain.
+
+## Why in-tree rather than FetchContent
+
+PLAN-VRMENU §1.5. Deploys in this project are hash-verified, and a build input
+that can change without a commit is precisely what a hash verification exists to
+rule out. The OpenXR SDK uses FetchContent in plugin/CMakeLists.txt; that is a
+pre-existing exception, not a precedent to widen.
+
+## What is here, and what is deliberately not
+
+Present: imgui.cpp, imgui_draw.cpp, imgui_tables.cpp, imgui_widgets.cpp,
+imgui.h, imgui_internal.h, imconfig.h, the three imstb_*.h that imgui.cpp
+includes, LICENSE.txt, and backends/imgui_impl_dx11.{h,cpp} and
+backends/imgui_impl_win32.{h,cpp}.
+
+ABSENT ON PURPOSE: imgui_demo.cpp. PLAN-VRMENU §1.5 excludes it from the shipped
+build. It is ~2000 lines of widget gallery that would be linked into a DLL that
+is injected into the wearer's game.
+
+## Local modifications
+
+NONE. If that ever stops being true, list every change here with its reason —
+an unlisted local edit to a pinned dependency is indistinguishable from a
+version mismatch when something breaks.

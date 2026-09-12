@@ -1,0 +1,407 @@
+# titanfall2vr.ini
+#
+# Every setting the mod has, with a one-line description. EVERY LINE IS
+# COMMENTED OUT and shows the built-in default, so the mod behaves exactly as
+# written here with this whole file deleted. Uncomment a line to change it.
+#
+# The first section is also in the settings panel INSIDE the headset -- click
+# both thumbsticks to open it. Changes you make there are written back into this
+# file under the same names. The last section is the handful of things the panel
+# cannot reach.
+#
+# START HERE ON NEW HARDWARE: the grip and position settings under HANDS &
+# WEAPON. The defaults were dialled in on one specific controller set, so on
+# different controllers the gun will sit wrong in your hand until you move it.
+# The arrow-key cluster nudges them live with the headset on -- see CONTROLS.md.
+#
+# Reload without restarting: tap PAUSE, then press END.
+
+# --------------------------------------------------------------------------
+# HOME
+# --------------------------------------------------------------------------
+
+# Resolution: Sharpness. 1.00 = your current resolution. Higher is sharper and costs frame rate.
+#   range 0.5 to 2
+# set render.scale = 1
+
+# --------------------------------------------------------------------------
+# VIEW -- where your eyes are
+# --------------------------------------------------------------------------
+
+# Eye height: How far above the game's own eye you stand, in game units (about an inch each).
+#   range 0 to 20
+# set eye.raise = 8
+
+# Neck length forward: How far in front of the neck pivot your eyes sit.
+#   range 0 to 0.4
+# set headtracking.neck_forward = 0.10
+
+# Neck length up: How far above the neck pivot your eyes sit.
+#   range 0 to 0.4
+# set headtracking.neck_up = 0.10
+
+# ADS magnification cap: How far aiming down sights is allowed to magnify.
+#   range 0 to 3
+# set ads.max_magnification = 0
+
+# Let scopes zoom: A weapon that zooms at least this much is a scope, and is left uncapped.
+#   range 1 to 8
+# set ads.optic_passthrough = 3
+
+# --------------------------------------------------------------------------
+# HANDS & WEAPON -- where the gun sits. TUNE THESE FIRST on new controllers
+# --------------------------------------------------------------------------
+
+# Sights take over in ADS: ADS hands the gun to the game: it centres and shoots where you look.
+#   range 0 to 1
+# set ads.lock = 1
+
+# Turn to the gun in ADS: ADS turns you left/right to face where the gun was pointing.
+#   range 0 to 1
+# set ads.face_aim = 1
+
+# Tilt to the gun in ADS: ADS also tilts your view up/down to the gun.
+#   range 0 to 1
+# set ads.face_aim_pitch = 1
+
+# Turn speed in ADS: How much of your normal turn speed you keep while aiming.
+#   range 0.05 to 1
+# set ads.turn_scale = 0.20
+
+# Aim brace strength: While aiming, the gun moves this fraction of your hand's movement. 1.0 = off.
+#   range 0.05 to 1
+# set ads.brace_gain = 0.35
+
+# Fine-tune cone: How far you can move inside the brace before it starts letting go.
+#   range 0.5 to 20
+# set ads.brace_cone_deg = 4
+
+# Brace release angle: Move further than this and the gun follows your hand normally again.
+#   range 1 to 45
+# set ads.brace_readopt_deg = 12
+
+# Grip forward: Where the gun sits along your hand, front to back.
+#   range -30 to 30
+# set hand.grip_fwd = -6.75
+
+# Grip right: Where the gun sits across your hand, left to right.
+#   range -30 to 30
+# set hand.grip_right = -3
+
+# Grip up: Where the gun sits vertically in your hand.
+#   range -30 to 30
+# set hand.grip_up = 4.75
+
+# Position forward: Moves the whole weapon away from or towards you, in the player's frame rather than the gun's.
+#   range -30 to 30
+# set hand.off_fwd = 1.29
+
+# Position left: Moves the whole weapon sideways in the player's frame.
+#   range -30 to 30
+# set hand.off_left = 0.20
+
+# Position up: Moves the whole weapon vertically in the player's frame.
+#   range -30 to 30
+# set hand.off_up = 1.55
+
+# Angle pitch: Tilts the weapon nose up or down relative to your hand.
+#   range -90 to 90
+# set hand.off_pitch = 0
+
+# Angle yaw: Swings the weapon left or right relative to your hand.
+#   range -90 to 90
+# set hand.off_yaw = 6.50
+
+# Angle roll: Rolls the weapon about its own barrel relative to your hand.
+#   range -90 to 90
+# set hand.off_roll = 0
+
+# Use hand pitch: Whether tilting your wrist tilts the gun.
+#   range 0 to 1
+# set hand.use_pitch = 1
+
+# Use hand roll: Whether rolling your wrist rolls the gun. Changing it MOVES a dialled-in grip.
+#   range 0 to 1
+# set hand.use_roll = 1
+
+# Yaw compensation: Measured to be 0. Leave it alone.
+#   range -1 to 1
+# set hand.yawcomp = 0
+
+# Pin forward: Pinned-viewmodel position, front to back. Diagnostic.
+#   range -200 to 200
+# set pin.fwd = 25
+
+# Pin right: Pinned-viewmodel position, left to right. Diagnostic.
+#   range -200 to 200
+# set pin.right = 12
+
+# Pin up: Pinned-viewmodel position, vertical. Diagnostic.
+#   range -200 to 200
+# set pin.up = -6
+
+# Pin spin: Pinned-viewmodel spin, degrees/sec. Diagnostic, not a comfort setting.
+#   range -360 to 360
+# set pin.spin = 0
+
+# --------------------------------------------------------------------------
+# HUD -- sizes and placement
+# --------------------------------------------------------------------------
+
+# Ammo and ability corner size: Size of the lower-left ammo and ability group. Bigger number = smaller.
+#   range 0.5 to 3
+# set rui.ll_scale = 1
+
+# Top-left cluster inset: Pulls the top-left cluster in from the screen edges, using the engine's own safe-area branch.
+#   range 0 to 0.49
+# set rui.inset = 0
+
+# Reticle and 2D HUD, up and down: Moves the flat HUD pass, reticle included, up/down in render pixels.
+#   range -1000 to 1000
+# set hud2d.shift_y = 0
+
+# Reticle and 2D HUD, across: The horizontal half of the shift above, in render pixels.
+#   range -1000 to 1000
+# set hud2d.shift_x = 0
+
+# Reticle and 2D HUD, size: Scales that same flat pass about its centre.
+#   range 0.25 to 3
+# set hud2d.zoom = 0.28
+
+# Weapon and ammo group, size: Size of the weapon/ammo group and the other screen-edge HUD segments.
+#   range 0.30 to 1.50
+# set hud.widget_scale = 0.55
+
+# Ammo and ability corner, across: Moves the lower-left group sideways without resizing it. Positive is right.
+#   range -0.40 to 0.40
+# set hud.ll_shift_x = 0.060
+
+# Ammo corner across, in a Titan: The same, for the Titan's larger loadout bar.
+#   range -0.40 to 0.40
+# set hud.ll_shift_x_titan = 0.120
+
+# Instruction panel, size: Size of the big instruction panel in the training gauntlet.
+#   range 0.05 to 3
+# set hud.instruction_scale = 0.58
+
+# Instruction panel, up and down: Moves that panel vertically. Positive is down.
+#   range -1 to 1
+# set hud.instruction_shift_y = 0.159
+
+# Gauntlet timer, size: Size of the gauntlet's run timer.
+#   range 0.05 to 3
+# set hud.timer_scale = 0.45
+
+# Gauntlet timer, across: Moves the timer sideways. Negative is in from the edge.
+#   range -1 to 1
+# set hud.timer_shift_x = -0.100
+
+# Gauntlet timer, up and down: Moves the timer vertically. Negative is up.
+#   range -1 to 1
+# set hud.timer_shift_y = -0.030
+
+# Weapon pickup prompt, size: Size of the prompt over a weapon you can pick up or swap.
+#   range 0.05 to 3
+# set hud.highlight_scale = 2.10
+
+# Detailed logging: Writes a full log for bug reports. Off by default; it is large and it costs frames.
+#   range 0 to 1
+# set diag.verbose = 0
+
+
+# Name labels, size: Size of the floating name labels and the enemy health bar.
+#   range 0.20 to 2
+# set hud.nameplate_scale = 0.50
+
+# Titan cockpit HUD, size: TITAN ONLY. Size of the cockpit surround and its top health bar. 0 = untouched.
+#   range 0 to 1.50
+# set hud.cockpit_scale = 0.60
+
+# Titan dash bars, size: TITAN ONLY. Size of the two dash bars along the bottom of the cockpit HUD.
+#   range 0.25 to 3
+# set hud.bars_scale = 1.15
+
+# Titan dash bars, height: TITAN ONLY. Height of those dash bars. NEGATIVE MOVES THEM UP.
+#   range -0.50 to 0.50
+# set hud.bars_shift_y = -0.090
+
+# Missile lock rings, stay on targets: TITAN ONLY. Multi-target lock rings stay on their targets, not on the square.
+#   range 0 to 1
+# set lockhud.viewfix = 1
+
+# Missile lock rings, size: Size of each lock ring.
+#   range 0.20 to 2
+# set lockhud.ring_scale = 0.60
+
+# Waypoint marker, size: How large the waypoint marker and its distance text are drawn.
+#   range 0.20 to 0.80
+# set hud.marker_size = 0.45
+
+# Waypoint distance text, across: Where the waypoint's distance text and its leader line sit across the screen, as a fraction.
+#   range 0 to 1
+# set hud.marker_text_x = 0.32
+
+# --------------------------------------------------------------------------
+# RETICLE
+# --------------------------------------------------------------------------
+
+# Hide the reticle: Removes the floating aim mark entirely.
+#   range 0 to 1
+# set reticle.hidden = 0
+
+# Keep the reticle in ADS: Keep the aim mark visible while aiming down sights.
+#   range 0 to 1
+# set ads.keep_reticle = 1
+
+# Reticle element scale: Measured to do nothing -- the float is not the reticle size. Kept, not working.
+#   range 0.05 to 20
+# set crosshair.scale = 1
+
+# --------------------------------------------------------------------------
+# BODY
+# --------------------------------------------------------------------------
+
+# Pilot body: How much of the pilot is drawn.
+#   range 0 to 2
+# set body.show = 1
+
+# --------------------------------------------------------------------------
+# CONTROLS -- sticks, turning, rumble
+# --------------------------------------------------------------------------
+
+# Crouch: 0 hold, 1 the game's own toggle, 2 ours.
+#   range 0 to 2
+# set input.crouch_mode = 1
+
+# Turning: Smooth sweeps the view; snap jumps it in steps (helps motion sickness).
+#   range 0 to 1
+# set input.turn_mode = 0
+
+# Turn speed: How fast the right stick sweeps the view, as a percentage of the game's own turn rate.
+#   range 10 to 100
+# set input.turn_speed = 70
+
+# Snap turn: How far each flick turns you.
+#   range 10 to 90
+# set input.snap_turn = 30
+
+# Rumble strength: How hard the controllers buzz, as a percentage of the game's own rumble.
+#   range 0 to 100
+# set input.haptic_strength = 100
+
+# Turn response: How the turn rate follows the stick.
+#   range 1 to 4
+# set input.turn_curve = 2
+
+# Turn deadzone: How far the right stick must go sideways before it turns you.
+#   range 0.05 to 0.95
+# set input.turn_deadzone = 0.45
+
+# Jump/crouch deadzone: How far the right stick must go up or down before it jumps or crouches.
+#   range 0.05 to 0.95
+# set input.jumpcrouch_deadzone = 0.6
+
+# Stick separation: Stops turning from clipping a crouch and vice versa.
+#   range 0 to 0.95
+# set input.stick_cross_ratio = 0.6
+
+# --------------------------------------------------------------------------
+# ADVANCED
+# --------------------------------------------------------------------------
+
+# Decouple the XR frame loop: Give the headset its own pacing thread so poses stay fresh when the game is slow.
+#   range 0 to 1
+# set xr.decouple = 0
+
+# World-rect gate: Refuse a viewport under half the render target in either axis as the world pass; the opening video otherwise submits a 32x32 square that the headset magnifies to fill the eye.
+#   range 0 to 1
+# set xr.world_rect_gate = 1
+
+# HUD anchor: Where the flat HUD pass (reticle, fade, loading overlay) is placed. 0 leaves it where the game puts it, which with the aim feed on is the right hand; 2 brings it back in front of your head; 1 is the reverse rotation. F12 flips 1 and 2.
+#   range 0 to 2
+# set rui.hud_anchor = 0
+
+# Flat HUD follows the head: Shift the flat HUD pass (reticle, loading overlay, fades) so it sits in front of your head instead of at your right hand. The reticle moves with it.
+#   range 0 to 1
+# set hud2d.head_anchor = 0
+
+# Centre full-screen canvases: Fades and full-screen overlays are moved to the centre of your view instead of following your right hand. The reticle is not touched.
+#   range 0 to 1
+# set hud.canvas_centre = 0
+
+# Hotkeys need focus: Whether the plugin's hotkeys only work while the game window has focus.
+#   range 0 to 1
+# set hotkeys.require_foreground = 1
+
+# Leader timeout: How long the leader key stays armed, in milliseconds.
+#   range 500 to 30000.0
+# set hotkeys.leader_timeout_ms = 4000
+
+# --------------------------------------------------------------------------
+# NOT IN THE PANEL -- arming, controllers, resolution
+# --------------------------------------------------------------------------
+
+# How much of the VR stack starts by itself: 0 none, 1 OpenXR, 2 +head tracking,
+# 3 +stereo, 4 +projection layer, 5 +the gun follows your hand.
+# set autoarm = 5
+
+# Viewmodel correction: Whether auto-arm keeps the gun in your body's frame while your head turns. 0 leaves the gun on the game's own camera (INSERT still toggles it).
+#   range 0 to 1
+# set viewmodel.correction = 1
+
+# Which profile this run is, for the log. 2 = VR. 1 = flat, on the monitor, no headset.
+# set profile = 2
+
+# Whether VR input reaches the game at all. 0 hands control back to a real pad.
+# set vrinput.enabled = 1
+
+# Your controllers answer the game's own gamepad calls. CANNOT be changed by a
+# live reload -- the game asks once at startup whether a gamepad exists.
+# set input.synthetic_pad = 1
+
+# Hold the game's "a controller is in use" flag true, so prompts say "press A".
+# set input.force_controller_mode = 1
+
+# Legacy fallback that drove menus by injecting keystrokes. On WITH the pad = every press twice.
+# set input.keyboard_menu_nav = 0
+
+# Hold Y this long (ms) for the objectives button. A tap still changes weapon, on release. 0 = off.
+# set input.y_longpress_ms = 350
+
+# D-pad modifier source: 0 off, 1 thumbrest, 2 controller raised beside your head, 3 either.
+# set dpad.modifier = 3
+
+# How far above your head the hand must reach for that gesture, in metres. Negative = below.
+# set dpad.head_up = -0.15
+
+# How near your head the hand must be for that gesture, horizontally, in metres.
+# set dpad.head_radius = 0.45
+
+# How long the d-pad modifier must be held before it engages, in ms. 0 = hold-to-shift.
+# set dpad.dwell_ms = 0
+
+# Absolute per-eye render size in pixels. 0 = derive from your headset (100% of its panel).
+# KEEP IT 16:9 -- the game will not render taller and wastes the extra pixels.
+# set render.width = 0
+# set render.height = 0
+
+# Run the game windowed/borderless rather than exclusive fullscreen.
+# set render.windowed = 1
+
+# Keep the buffer at least as wide as the game's letterbox floor: On a near-square headset the derived size is widened to 1.6 so the game never letterboxes and the menu is not cropped. Costs pixels; lower render.scale to trade them back. 0 uses the lens ratio alone.
+#   range 0 to 1
+# set render.min_aspect_floor = 1
+
+# Holds the game's own field-of-view scale, matched to the headset. Change carefully.
+# set game.fov_scale = 1.51
+
+# --------------------------------------------------------------------------
+# REBINDING KEYS
+# --------------------------------------------------------------------------
+# Shortcuts sit behind a leader key: tap PAUSE, then the second key within 4 s.
+# Modifier chords cannot be used -- the game sees every key the mod sees.
+#
+#     leader        = PAUSE
+#     bind <action> = [LEADER+]<key>          ("none" unbinds)
+#
+# CONTROLS.md lists every action and its default key.

@@ -1,0 +1,36 @@
+# CMake build tree, including the OpenXR SDK fetched at configure time.
+plugin/build/
+
+# Read-only third-party reference checkouts, each its own git clone.
+# NorthstarLauncher is the modding framework; InjectableGenericCameraSystem is
+# used only as a source of proven byte-pattern signatures. Neither is modified
+# and neither belongs in this repository's history.
+NorthstarLauncher/
+InjectableGenericCameraSystem/
+
+# Diagnostic output written to the temp directory during live tests.
+*.bmp
+*.log
+
+# Stray directory created by a shell command that left %SystemDrive%
+# unexpanded; it contains only Windows cache files, not project content.
+plugin/%SystemDrive%/
+
+# pescan build output. The tool is source-only in the repo; build it with
+# cl /nologo /std:c++20 /EHsc /O2 pescan.cpp /Fe:pescan.exe
+tools/pescan/*.exe
+tools/pescan/*.obj
+tools/pescan/*.pdb
+
+# Release archives built by tools/package.ps1.
+release/
+
+# Build output for the image tools. Source-only in the repo, same rule as
+# pescan: an unsigned .exe committed to a mod's repository is exactly the thing
+# a stranger should not have to trust, and it is one cl.exe invocation to make.
+tools/bmpcrop/*.exe
+tools/bmpcrop/*.obj
+tools/bmpdiff/*.exe
+tools/bmpdiff/*.obj
+tools/bmpshift/*.exe
+tools/bmpshift/*.obj
